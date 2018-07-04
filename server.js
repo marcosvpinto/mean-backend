@@ -11,7 +11,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://[server]/issues');
+mongoose.connect('mongodb://localhost/issues');
 
 const connection = mongoose.connection;
 
@@ -27,7 +27,7 @@ router.route('/issues/add').post((req, res) => {
             res.status(200).json({'issue': 'Added succesfully'});
         })
         .catch(err => {
-            rew.status(400).send('Failed to create new Record');
+            res.status(400).send('Failed to create new Record');
         });
 });
 
